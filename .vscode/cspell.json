@@ -3,7 +3,14 @@
   "ignorePaths": [],
   "dictionaryDefinitions": [],
   "dictionaries": [],
-  "words": [],
+  "words": [
+    "isort",
+    "mypy",
+    "pyenv",
+    "pytest",
+    "venv",
+    "virtualenv"
+  ],
   "ignoreWords": [],
   "import": []
 }

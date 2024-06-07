@@ -5,30 +5,34 @@
 It's a combination of pip and venv. conda?  
 Can't you make a wheel package?
 
+<!-- /* spell-checker:words pipenv */ -->
+
 ## Table of Contents <!-- omit in toc -->
 
 - [pipenv](#pipenv)
   - [References](#references)
-  - [Installation](#installation)
-    - [Using pip on venv](#using-pip-on-venv)
+  - [Install](#install)
+  - [Configurations](#configurations)
+    - [How the project was initialized](#how-the-project-was-initialized)
+    - [Install packages](#install-packages)
+    - [Custom Script Shortcuts](#custom-script-shortcuts)
+    - [Provide console scripts](#provide-console-scripts)
   - [Project management](#project-management)
     - [Project setup and create virtualenv](#project-setup-and-create-virtualenv)
     - [Remove the virtualenv](#remove-the-virtualenv)
     - [Spawns a shell within the virtualenv](#spawns-a-shell-within-the-virtualenv)
-    - [Spawns a command installed into the virtualenv](#spawns-a-command-installed-into-the-virtualenv)
-    - [Restore packages](#restore-packages)
-    - [Install packages](#install-packages)
-    - [Update packages](#update-packages)
-    - [Uninstall packages](#uninstall-packages)
-    - [Uninstall all packages](#uninstall-all-packages)
-    - [List packages](#list-packages)
+    - [\[run\] Spawns a command installed into the virtualenv](#run-spawns-a-command-installed-into-the-virtualenv)
+    - [\[install/sync\] Restore packages](#installsync-restore-packages)
+    - [\[install\] Add packages](#install-add-packages)
+    - [\[update\] Update package](#update-update-package)
+    - [\[update\] Update outdated packages](#update-update-outdated-packages)
+    - [\[uninstall\] Remove packages](#uninstall-remove-packages)
+    - [\[clean\] Uninstall all packages](#clean-uninstall-all-packages)
+    - [\[graph\] List packages](#graph-list-packages)
     - [Build wheel package](#build-wheel-package)
   - [Tips](#tips)
-    - [Custom Script Shortcuts](#custom-script-shortcuts)
     - [Where you placed the site-package modules?](#where-you-placed-the-site-package-modules)
     - [Read environment file](#read-environment-file)
-  - [Provide Console Scripts](#provide-console-scripts)
-    - [Create entry point](#create-entry-point)
 
 
 ## References
@@ -37,13 +41,126 @@ Can't you make a wheel package?
 - https://github.com/pypa/pipenv
 
 
-## Installation
+## Install
 
-### Using pip on venv
+Install using pip on venv:
 
 ```shell
 pip install --user pipenv
 ```
+
+
+## Configurations
+
+### How the project was initialized
+
+Create and move project folder:
+
+```shell
+mkdir -p src/examples-packaging-pipenv
+cd src/examples-packaging-pipenv
+```
+
+Generate a `Pipfile` with the following command:
+
+<!-- /* spell-checker:words Pipfile */ -->
+
+```shell
+# You need pyenv if you want other python versions.
+# A virtual environment is not created because it was executed in venv.
+pipenv --python 3.11
+export PIPENV_VENV_IN_PROJECT=true
+```
+
+Generate the initial directory for the package with the following command:
+
+```shell
+mkdir -p src/examples_packaging_pipenv/
+touch src/examples_packaging_pipenv/__init__.py
+```
+
+The final directory will look like this:
+
+```console
+.
+├── Pipfile
+├── Pipfile.lock
+├── README.md
+└── src
+    └── examples_packaging_pipenv
+        └── __init__.py
+```
+
+### Install packages
+
+Install dependency packages for this project:
+
+```shell
+pipenv install --dev flake8 mypy black isort pytest-cov
+```
+
+`Pipfile` `Pipfile.lock` is updated.
+
+### Custom Script Shortcuts
+
+`Pipfile`:
+
+```ini
+[scripts]
+format = "black -l 119 ."
+lint = "flake8 --show-source ."
+start = "python main.py runserver"
+test = "pytest"
+```
+
+<!-- /* spell-checker:words runserver */ -->
+
+```console
+$ pipenv run start
+```
+
+### Provide console scripts
+
+`pipenv` cannot create packages and therefore cannot convert packages to commands, but you can define Python commands using custom script shortcuts.
+
+Create entry point:
+
+`src/examples_packaging_pipenv/console/command.py`:
+
+```py
+import sys
+
+
+def main():
+    print("Hello pipenv.")
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+
+```
+
+`Pipfile` will look like this:
+
+```ini
+[scripts]
+start = "python src/examples_packaging_pipenv/console/command.py"
+```
+
+When you run it:
+
+```shell
+pipenv run start
+```
+
+```console
+Courtesy Notice: Pipenv found itself running within a virtual environment, so it will automatically use that environment, instead of creating its own for any project. You can set PIPENV_IGNORE_VIRTUALENVS=1 to force pipenv to ignore that environment and create its own instead. You can set PIPENV_VERBOSITY=-1 to suppress this warning.
+Hello pipenv.
+```
+<!-- /* spell-checker:words VIRTUALENVS */ -->
+
+It's a warning but I don't care.
+
 
 ## Project management
 
@@ -61,9 +178,11 @@ Enable environment variables if you want a virtual environment in your project f
 export PIPENV_VENV_IN_PROJECT=true
 ```
 
-```console
-$ pipenv --python 3.8
+```shell
+pipenv --python 3.8
+```
 
+```console
 Creating a virtualenv for this project…
 Pipfile: /home/xxxxxx/workspaces/databases/test-pipenv/Pipfile
 ...
@@ -75,9 +194,11 @@ Creating a Pipfile for this project…
 
 If you specify a version that is not installed, it will work with `pyenv`.
 
-```console
-$ pipenv --python 3.6
+```shell
+pipenv --python 3.6
+```
 
+```console
 Warning: Python 3.6 was not found on your system…
 Would you like us to install CPython 3.6.12 with Pyenv? [Y/n]: y
 
@@ -88,7 +209,6 @@ Downloading Python-3.6.12.tar.xz...
 Installing Python-3.6.12...
 Installed Python-3.6.12 to /home/xxxxxx/.anyenv/envs/pyenv/versions/3.6.12
 
-
 Creating a virtualenv for this project…
 Pipfile: /home/xxxxxx/workspaces/databases/test-pipenv/Pipfile
 ...
@@ -96,14 +216,16 @@ Pipfile: /home/xxxxxx/workspaces/databases/test-pipenv/Pipfile
 ✔ Successfully created virtual environment!
 Virtualenv location: /home/xxxxxx/.local/share/virtualenvs/test-pipenv-f7l9kGAQ
 Creating a Pipfile for this project…
-
 ```
+<!-- /* spell-checker:words anyenv */ -->
 
 When the pipenv environment is built with the virtual environment enabled:
 
+```shell
+pipenv --python 3.11
 ```
-$ pipenv --python 3.11
 
+```console
 Courtesy Notice: Pipenv found itself running within a virtual environment, so it will automatically use that environment, instead of creating its own for any project. You can set PIPENV_IGNORE_VIRTUALENVS=1 to force pipenv to ignore that environment and create its own instead. You can set PIPENV_VERBOSITY=-1 to suppress this warning.
 Creating a Pipfile for this project...
 ```
@@ -115,7 +237,6 @@ pipenv --rm
 ```
 
 ```console
-$ pipenv --rm
 Removing virtualenv (/home/xxxxxx/.local/share/virtualenvs/test-pipenv-f7l9kGAQ)…
 ```
 
@@ -126,8 +247,6 @@ pipenv shell
 ```
 
 ```console
-$ pipenv shell
-
 Launching subshell in virtual environment…
  . /home/xxxxxx/.local/share/virtualenvs/test-pipenv-f7l9kGAQ/bin/activate
 
@@ -136,16 +255,16 @@ Launching subshell in virtual environment…
 Python 3.6.12
 
 (test-pipenv) $ exit
-
 ```
+<!-- /* spell-checker:words subshell */ -->
 
-### Spawns a command installed into the virtualenv
+### [run] Spawns a command installed into the virtualenv
 
 ```shell
 pipenv run {command}
 ```
 
-### Restore packages
+### [install/sync] Restore packages
 
 from `Pipfile`
 
@@ -167,7 +286,7 @@ from `requirements.txt`
 pipenv install -r ./requirements.txt
 ```
 
-### Install packages
+### [install] Add packages
 
 Adding a package makes an entry in the `Pipfile`.
 
@@ -177,7 +296,7 @@ pipenv install --dev {packages...}
 ```
 
 ```console
-(test-pipenv) $ pipenv install numpy
+$ pipenv install numpy
 
 Installing numpy…
 Adding numpy to Pipfile's [packages]…
@@ -192,18 +311,35 @@ Updated Pipfile.lock (2cfc5e)!
 Installing dependencies from Pipfile.lock (2cfc5e)…
   🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 0/0 — 00:00:00
 ```
+<!-- /* spell-checker:words numpy */ -->
 
-### Update packages
+### [update] Update package
 
 Runs lock, then sync.
 
 ```shell
 pipenv update {packages...}
+```
+
+### [update] Update outdated packages
+
+show outdated list:
+
+```shell
 pipenv update --outdated
+
+```
+
+Update all dependency packages:
+
+```shell
 pipenv update
 ```
 
-### Uninstall packages
+`Pipfile.lock` is updated.
+
+
+### [uninstall] Remove packages
 
 Un-installs a provided package and removes it from `Pipfile`.
 
@@ -211,7 +347,7 @@ Un-installs a provided package and removes it from `Pipfile`.
 pipenv uninstall {packages...}
 ```
 
-### Uninstall all packages
+### [clean] Uninstall all packages
 
 Uninstalls all packages not specified in `Pipfile.lock`.
 
@@ -219,7 +355,7 @@ Uninstalls all packages not specified in `Pipfile.lock`.
 pipenv clean
 ```
 
-### List packages
+### [graph] List packages
 
 Tree display of dependencies:
 
@@ -231,25 +367,9 @@ pipenv graph
 
 **`pipenv` does not provide package creation. You need to use another tool such as `setuptools`.**
 
-
+<!-- /* spell-checker:words setuptools */ -->
 
 ## Tips
-
-### Custom Script Shortcuts
-
-**`Pipfile`**:
-
-```ini
-[scripts]
-format = "black -l 119 ."
-lint = "flake8 --show-source ."
-start = "python main.py runserver"
-test = "pytest"
-```
-
-```console
-$ pipenv run start
-```
 
 ### Where you placed the site-package modules?
 
@@ -271,47 +391,8 @@ Try running it:
 
 ```console
 $ pipenv run python
+
 >>> import os
 >>> os.environ['DEBUG']
 '1'
 ```
-
-
-## Provide Console Scripts
-
-`pipenv` cannot create packages and therefore cannot convert packages to commands, but you can define Python commands using custom script shortcuts.
-
-### Create entry point
-
-Create `console/command.py` file:
-
-```py
-import sys
-
-
-def main():
-    print("Hello pipenv.")
-
-
-if __name__ == "__main__":
-    sys.exit(main())
-
-```
-
- `Pipfile` will look like this:
-
-```ini
-[scripts]
-start = "python src/examples_packaging_pipenv/console/command.py"
-```
-
-When you run it:
-
-```console
-$ pipenv run start
-
-Courtesy Notice: Pipenv found itself running within a virtual environment, so it will automatically use that environment, instead of creating its own for any project. You can set PIPENV_IGNORE_VIRTUALENVS=1 to force pipenv to ignore that environment and create its own instead. You can set PIPENV_VERBOSITY=-1 to suppress this warning.
-Hello pipenv.
-```
-
-It's a warning but I don't care.
