@@ -9,6 +9,16 @@ requires-python = ">=3.11"
 
 dependencies = []
 
+[project.optional-dependencies]
+dev = [
+  "flake8>=7.0.0",
+  "build",
+  "mypy>=1.11.0",
+  "black>=24.4.0",
+  "isort>=5.13.0",
+  "pyclean",
+]
+
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = ["setuptools"]
@@ -22,3 +32,21 @@ version = {attr = "examples_packaging_setup2.__version__"}
 [tool.setuptools.packages.find]
 exclude = ["tests*"]
 where = ["src"]
+
+[tool.black]
+line-length = 119
+
+[tool.isort]
+line_length = 119
+profile = "black"
+
+[tool.pylint]
+max-line-length = 119
+
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = "setuptools"
