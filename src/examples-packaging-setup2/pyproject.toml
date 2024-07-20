@@ -19,6 +19,9 @@ dev = [
   "pyclean",
 ]
 
+[project.scripts]
+examples-setup2-cli = "examples_packaging_setup2.console.command:main"
+
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = ["setuptools"]
