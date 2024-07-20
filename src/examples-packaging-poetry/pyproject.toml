@@ -1,0 +1,13 @@
+[tool.poetry]
+authors = ["A.suzuki <suzu.devworks@gmail.com>"]
+description = ""
+name = "examples-packaging-poetry"
+readme = "README.md"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
