@@ -51,4 +51,4 @@ Hello setuptools.
 
 ## More Information
 
-- [docs](/docs/packaging/setuptools.md)
+- [setuptools - docs](/docs/packaging/setuptools.md)
