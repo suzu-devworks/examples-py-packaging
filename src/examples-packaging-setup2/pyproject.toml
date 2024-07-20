@@ -1,3 +1,7 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
 [project]
 name = "examples-packaging-setup2"
 
@@ -22,9 +26,8 @@ dev = [
 [project.scripts]
 examples-setup2-cli = "examples_packaging_setup2.console.command:main"
 
-[build-system]
-build-backend = "setuptools.build_meta"
-requires = ["setuptools"]
+[tool.setuptools]
+include-package-data = true
 
 [tool.setuptools.dynamic]
 version = {attr = "examples_packaging_setup2.__version__"}
