@@ -1,4 +1,4 @@
-# pipenv
+# Pipenv
 
 > Pipenv is a Python virtualenv management tool that supports a multitude of systems and nicely bridges the gaps between pip, pyenv and virtualenv.
 
@@ -9,7 +9,7 @@ Can't you make a wheel package?
 
 ## Table of Contents <!-- omit in toc -->
 
-- [pipenv](#pipenv)
+- [Pipenv](#pipenv)
   - [References](#references)
   - [Install](#install)
   - [Configurations](#configurations)
