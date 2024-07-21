@@ -1,3 +1,7 @@
+[build-system]
+build-backend = "pdm.backend"
+requires = ["pdm-backend"]
+
 [project]
 authors = [
   {name = "A.suzuki", email = "suzu.devworks@gmail.com"},
@@ -12,10 +16,6 @@ requires-python = ">=3.12"
 
 [project.scripts]
 examples-pdm-cli = "examples_packaging_pdm.console.command:main"
-
-[build-system]
-build-backend = "pdm.backend"
-requires = ["pdm-backend"]
 
 [tool.pdm]
 distribution = true
