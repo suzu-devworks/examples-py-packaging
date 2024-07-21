@@ -3,7 +3,12 @@
   "ignorePaths": [],
   "dictionaryDefinitions": [],
   "dictionaries": [],
-  "words": [],
+  "words": [
+    "distutils",
+    "pyproject",
+    "setuptools",
+    "venv"
+  ],
   "ignoreWords": [],
   "import": []
 }
