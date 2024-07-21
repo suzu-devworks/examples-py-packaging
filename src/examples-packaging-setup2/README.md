@@ -1,10 +1,11 @@
-# examples-packaging-setup
+# examples-packaging-setup2
 
-This is a project to learn packaging using setuptools.
+This is a project to learn packaging using setuptools with pyproject.toml.
+
 
 ## Table of Contents <!-- omit in toc -->
 
-- [examples-packaging-setup](#examples-packaging-setup)
+- [examples-packaging-setup2](#examples-packaging-setup2)
   - [Configure environment](#configure-environment)
   - [Getting started](#getting-started)
   - [More Information](#more-information)
@@ -26,12 +27,13 @@ python -m pip install --upgrade pip
 pip install --upgrade setuptools wheel build
 ```
 
+
 ## Getting started
 
 Move to the root of your project...
 
 ```shell
-cd src/examples-packaging-setup
+cd src/examples-packaging-setup2
 ```
 
 Install this project:
@@ -43,9 +45,9 @@ pip install -e .
 When you run it:
 
 ```console
-$ examples-setup-cli
+$ examples-setup2-cli
 
-Hello setuptools.
+Hello setuptools with pyproject.toml.
 ```
 
 
