@@ -4,10 +4,11 @@
   "dictionaryDefinitions": [],
   "dictionaries": [],
   "words": [
-    "pyproject",
     "isort",
     "mypy",
+    "pyclean",
     "pyenv",
+    "pyproject",
     "pytest",
     "venv",
     "virtualenv"
