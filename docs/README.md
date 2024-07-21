@@ -28,9 +28,7 @@ Environment required for python development.
   - [Pipenv](./packaging/pipenv.md)
   - [Poetry](./packaging/poetry.md)
   - [PDM](./packaging/pdm.md)
+  - [Rye](./packaging/rye.md)
 
-
-<!-- // spell-checker:words pyenv -->
-<!-- // spell-checker:words virtualenv -->
 <!-- // spell-checker:words setuptools -->
 <!-- // spell-checker:words pipenv -->

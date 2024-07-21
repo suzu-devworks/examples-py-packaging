@@ -8,6 +8,7 @@
     "ms-python.flake8",
     "ms-python.mypy-type-checker",
     "be5invis.toml",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "charliermarsh.ruff",
   ]
 }
