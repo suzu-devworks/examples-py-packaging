@@ -2,6 +2,9 @@
 
 > Setuptools is a collection of enhancements to the Python distutils that allow developers to more easily build and distribute Python packages, especially ones that have dependencies on other packages.
 
+<!-- /* spell-checker:words setuptools */ -->
+<!-- /* spell-checker:words distutils */ -->
+
 ## Table of Contents <!-- omit in toc -->
 
 - [setuptools](#setuptools)

@@ -4,10 +4,13 @@
   "dictionaryDefinitions": [],
   "dictionaries": [],
   "words": [
-    "distutils",
     "pyproject",
-    "setuptools",
-    "venv"
+    "isort",
+    "mypy",
+    "pyenv",
+    "pytest",
+    "venv",
+    "virtualenv"
   ],
   "ignoreWords": [],
   "import": []
