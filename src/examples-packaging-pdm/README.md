@@ -55,4 +55,4 @@ Hello pdm.
 
 ## More Information
 
-- [pdm - docs](/docs/packaging/pdm.md)
+- [PDM - docs](/docs/packaging/pdm.md)

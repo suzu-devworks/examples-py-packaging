@@ -2,6 +2,7 @@
 
 This is a project to learn packaging using setuptools with pyproject.toml.
 
+<!-- /* spell-checker:words setuptools */ -->
 
 ## Table of Contents <!-- omit in toc -->
 
@@ -53,4 +54,4 @@ Hello setuptools with pyproject.toml.
 
 ## More Information
 
-- [setuptools - docs](/docs/packaging/setuptools.md)
+- [Setuptools - docs](/docs/packaging/setuptools.md)

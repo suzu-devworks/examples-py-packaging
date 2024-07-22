@@ -2,6 +2,8 @@
 
 This is a project to learn packaging using setuptools.
 
+<!-- /* spell-checker:words setuptools */ -->
+
 ## Table of Contents <!-- omit in toc -->
 
 - [examples-packaging-setup](#examples-packaging-setup)
@@ -51,4 +53,4 @@ Hello setuptools.
 
 ## More Information
 
-- [setuptools - docs](/docs/packaging/setuptools.md)
+- [Setuptools - docs](/docs/packaging/setuptools.md)
