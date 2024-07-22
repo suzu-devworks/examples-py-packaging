@@ -11,6 +11,7 @@
   - [Configurations](#configurations)
     - [Use uv.](#use-uv)
     - [How the project was initialized](#how-the-project-was-initialized)
+    - [Install dependency packages](#install-dependency-packages)
   - [Commands](#commands)
     - [\[add\] Add dependencies](#add-add-dependencies)
     - [\[remove\] Remove dependencies](#remove-remove-dependencies)
@@ -112,6 +113,15 @@ Once that is done, you can use rye sync to get the first synchronization. After 
 ```shell
 rye sync
 ```
+
+### Install dependency packages
+
+Install dependency packages for this project:
+
+```shell
+rye add -d ruff mypy pytest-cov pyclean
+```
+
 
 ## Commands
 

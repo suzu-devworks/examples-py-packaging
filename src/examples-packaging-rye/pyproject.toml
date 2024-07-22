@@ -16,8 +16,19 @@ version = "0.1.0"
 [tool.rye]
 dev-dependencies = [
   "ruff>=0.5.4",
+  "mypy>=1.11.0",
+  "pytest-cov>=5.0.0",
+  "pyclean>=3.0.0",
 ]
 managed = true
+
+[tool.rye.scripts]
+clean = "pyclean ."
+format = "ruff format"
+lint = {chain = ["lint:ruff", "lint:mypy"]}
+"lint:mypy" = "mypy ."
+"lint:ruff" = "ruff check"
+test = "pytest"
 
 [tool.hatch.metadata]
 allow-direct-references = true
@@ -28,25 +39,24 @@ packages = ["src/examples_packaging_rye"]
 [tool.ruff]
 line-length = 119
 
+[tool.ruff.format]
+docstring-code-format = true
+indent-style = "tab"
+quote-style = "double"
+
 [tool.ruff.lint]
-ignore = [
-  "COM812",
-  "COM819",
-  "D100",
-  "D203",
-  "D213",
-  "D300",
-  "E111",
-  "E114",
-  "E117",
-  "E203",
-  "E266",
-  "ISC001",
-  "ISC002",
-  "Q000",
-  "Q001",
-  "Q002",
-  "Q003",
-  "W191",
+ignore = []
+# select = ["ALL"]
+select = [
+  "E4",
+  "E7",
+  "E9",
+  "F",
+  "I",
 ]
-select = ["ALL"]
+
+[tool.mypy]
+check_untyped_defs = true
+ignore_missing_imports = true
+no_strict_optional = true
+python_version = "3.12"
