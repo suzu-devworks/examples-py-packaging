@@ -48,15 +48,8 @@ indent-style = "tab"
 quote-style = "double"
 
 [tool.ruff.lint]
-ignore = []
-# select = ["ALL"]
-select = [
-  "E4",
-  "E7",
-  "E9",
-  "F",
-  "I",
-]
+ignore = ["D", "T20"]
+select = ["ALL"]
 
 [tool.mypy]
 check_untyped_defs = true
