@@ -20,10 +20,10 @@ on:
     branches: [ "main" ]
     paths:
       - "src/**"
-  schedule:
-    - cron: '36 22 * * 5'
+  # schedule:
+  #   - cron: '36 22 * * 5'
   workflow_dispatch:
-  
+
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
