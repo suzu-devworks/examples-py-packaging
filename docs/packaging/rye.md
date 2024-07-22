@@ -11,6 +11,8 @@
   - [Configurations](#configurations)
     - [Use uv.](#use-uv)
     - [How the project was initialized](#how-the-project-was-initialized)
+    - [Install dependency packages](#install-dependency-packages)
+    - [Provide Console Scripts](#provide-console-scripts)
   - [Commands](#commands)
     - [\[add\] Add dependencies](#add-add-dependencies)
     - [\[remove\] Remove dependencies](#remove-remove-dependencies)
@@ -112,6 +114,49 @@ Once that is done, you can use rye sync to get the first synchronization. After 
 ```shell
 rye sync
 ```
+
+### Install dependency packages
+
+Install dependency packages for this project:
+
+```shell
+rye add -d ruff mypy pytest-cov pyclean
+```
+
+### Provide Console Scripts
+
+How to provide console scripts in the PDM package.
+
+- [project.scripts - Python Project (pyproject.toml)](https://rye.astral.sh/guide/pyproject/#projectscripts)
+
+Create entry point:
+
+```py
+def main() -> None:
+    print("Hello rye.")
+```
+
+`pyproject.toml`:
+
+```toml
+[project.scripts]
+examples-rye-cli = "examples_packaging_rye.console.command:main"
+```
+
+Install the package locally:
+
+```shell
+rye sync
+```
+
+When you run it:
+
+```console
+$ examples-rye-cli
+
+Hello rye.
+```
+
 
 ## Commands
 

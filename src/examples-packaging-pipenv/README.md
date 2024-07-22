@@ -51,5 +51,5 @@ It's a warning but I don't care.
 
 ## More Information
 
-- [pipenv - docs](/docs/packaging/pipenv.md)
+- [Pipenv - docs](/docs/packaging/pipenv.md)
 

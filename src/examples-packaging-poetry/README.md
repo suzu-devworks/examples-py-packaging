@@ -61,4 +61,4 @@ Hello poetry.
 
 ## More Information
 
-- [poetry - docs](/docs/packaging/poetry.md)
+- [Poetry - docs](/docs/packaging/poetry.md)
