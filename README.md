@@ -1,5 +1,7 @@
 # examples-py-packaging
 
+[![CodeQL](https://github.com/suzu-devworks/examples-py-packaging/actions/workflows/codeql.yml/badge.svg)](https://github.com/suzu-devworks/examples-py-packaging/actions/workflows/codeql.yml)
+
 Workspace for studying Python packaging.
 
 ## What is this
