@@ -23,7 +23,7 @@ curl -sSL https://pdm-project.org/install-pdm.py | python3 -
 Move to the root of your project...
 
 ```shell
-cd src/examples-packaging-pdm
+cd apps/examples-packaging-pdm
 ```
 
 If you don't want to pollute the environment, have a separate venv:

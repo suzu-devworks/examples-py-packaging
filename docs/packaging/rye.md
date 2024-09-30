@@ -85,13 +85,13 @@ true
 Create project this command:
 
 ```shell
-rye init src/examples-packaging-rye
+rye init apps/examples-packaging-rye
 ```
 
 Move to the root of your project...
 
 ```shell
-cd src/examples-packaging-rye
+cd apps/examples-packaging-rye
 ```
 
 The final directory will look like this:

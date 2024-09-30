@@ -4,7 +4,7 @@ requires = ["hatchling"]
 
 [project]
 authors = [
-  {name = "A.suzuki", email = "suzu.devworks@gmail.com"},
+  { name = "A.suzuki", email = "suzu.devworks@gmail.com" },
 ]
 dependencies = []
 description = "Add your description here"
@@ -28,7 +28,7 @@ managed = true
 [tool.rye.scripts]
 clean = "pyclean ."
 format = "ruff format"
-lint = {chain = ["lint:ruff", "lint:mypy"]}
+lint = { chain = ["lint:ruff", "lint:mypy"] }
 "lint:mypy" = "mypy ."
 "lint:ruff" = "ruff check"
 test = "pytest"
@@ -54,5 +54,4 @@ select = ["ALL"]
 [tool.mypy]
 check_untyped_defs = true
 ignore_missing_imports = true
-no_strict_optional = true
 python_version = "3.12"

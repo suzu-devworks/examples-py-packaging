@@ -31,7 +31,7 @@ source "$HOME/.rye/env"
 Move to the root of your project...
 
 ```shell
-cd src/examples-packaging-rye
+cd apps/examples-packaging-rye
 ```
 
 Install this project:

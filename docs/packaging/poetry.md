@@ -51,8 +51,8 @@ pip install poetry
 Create and move project folder:
 
 ```shell
-mkdir -p src/examples-packaging-poetry
-cd src/examples-packaging-poetry
+mkdir -p apps/examples-packaging-poetry
+cd apps/examples-packaging-poetry
 ```
 
 Generate a template for your project with the following command:
@@ -111,7 +111,7 @@ packages = [{include = "examples_packaging_poetry", from = "src"}]
 
 How to provide console scripts in the poetry package.
 
-Create entry point `src/examples_packaging_poetry/console/command.py`:
+Create entry point `apps/examples_packaging_poetry/console/command.py`:
 
 ```py
 def main() -> None:

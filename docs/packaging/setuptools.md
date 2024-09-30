@@ -89,15 +89,15 @@ All tools related to Python projects, not just build tools, can be given configu
 Create and move project folder:
 
 ```shell
-mkdir -p src/examples-packaging-setup2
-cd src/examples-packaging-setup2
+mkdir -p apps/examples-packaging-setup2
+cd apps/examples-packaging-setup2
 ```
 
 Create package:
 
 ```shell
-mkdir -p src/examples_packaging_setup2/
-touch src/examples_packaging_setup2/__init__.py
+mkdir -p apps/examples_packaging_setup2/
+touch apps/examples_packaging_setup2/__init__.py
 ```
 
 Create a `pyproject.toml` file for your project configuration.
@@ -120,7 +120,7 @@ build-backend = "setuptools.build_meta"
 requires = ["setuptools"]
 
 [tool.setuptools.package-dir]
-"examples_packaging_setup2" = "src/examples_packaging_setup2"
+"examples_packaging_setup2" = "apps/examples_packaging_setup2"
 
 [tool.setuptools.packages.find]
 exclude = ["tests*"]
@@ -278,8 +278,8 @@ Every package should include a license file detailing the terms of distribution.
 Create and move project folder:
 
 ```shell
-mkdir -p src/examples-packaging-setup
-cd src/examples-packaging-setup
+mkdir -p apps/examples-packaging-setup
+cd apps/examples-packaging-setup
 ```
 
 Create package:

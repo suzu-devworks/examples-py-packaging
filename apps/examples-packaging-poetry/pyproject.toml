@@ -6,7 +6,7 @@ requires = ["poetry-core"]
 authors = ["A.suzuki <suzu.devworks@gmail.com>"]
 description = ""
 name = "examples-packaging-poetry"
-packages = [{include = "examples_packaging_poetry", from = "src"}]
+packages = [{ include = "examples_packaging_poetry", from = "src" }]
 readme = "README.md"
 version = "0.1.3"
 
@@ -41,7 +41,6 @@ max-line-length = 119
 [tool.mypy]
 check_untyped_defs = true
 ignore_missing_imports = true
-no_strict_optional = true
 python_version = "3.12"
 
 [tool.taskipy.tasks]

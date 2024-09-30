@@ -34,7 +34,7 @@ pip install pipenv
 Move to the root of your project...
 
 ```shell
-cd src/examples-packaging-pipenv
+cd apps/examples-packaging-pipenv
 ```
 
 When you run it:
