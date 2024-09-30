@@ -4,12 +4,12 @@ requires = ["pdm-backend"]
 
 [project]
 authors = [
-  {name = "A.suzuki", email = "suzu.devworks@gmail.com"},
+  { name = "A.suzuki", email = "suzu.devworks@gmail.com" },
 ]
 dependencies = []
 description = "Default template for PDM package"
 dynamic = ["version"]
-license = {text = "MIT"}
+license = { text = "MIT" }
 name = "examples-packaging-pdm"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -51,7 +51,6 @@ max-line-length = 119
 [tool.mypy]
 check_untyped_defs = true
 ignore_missing_imports = true
-no_strict_optional = true
 python_version = "3.12"
 
 [tool.pdm.scripts]

@@ -57,8 +57,8 @@ pip install --user pipenv
 Create and move project folder:
 
 ```shell
-mkdir -p src/examples-packaging-pipenv
-cd src/examples-packaging-pipenv
+mkdir -p apps/examples-packaging-pipenv
+cd apps/examples-packaging-pipenv
 ```
 
 Generate a `Pipfile` with the following command:
@@ -75,8 +75,8 @@ export PIPENV_VENV_IN_PROJECT=true
 Generate the initial directory for the package with the following command:
 
 ```shell
-mkdir -p src/examples_packaging_pipenv/
-touch src/examples_packaging_pipenv/__init__.py
+mkdir -p apps/examples_packaging_pipenv/
+touch apps/examples_packaging_pipenv/__init__.py
 ```
 
 The final directory will look like this:
@@ -125,7 +125,7 @@ $ pipenv run start
 
 Create entry point:
 
-`src/examples_packaging_pipenv/console/command.py`:
+`apps/examples_packaging_pipenv/console/command.py`:
 
 ```py
 import sys
@@ -144,7 +144,7 @@ if __name__ == "__main__":
 
 ```ini
 [scripts]
-start = "python src/examples_packaging_pipenv/console/command.py"
+start = "python apps/examples_packaging_pipenv/console/command.py"
 ```
 
 When you run it:

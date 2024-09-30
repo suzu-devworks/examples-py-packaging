@@ -82,8 +82,8 @@ sudo mv pdm.bash-completion /etc/bash_completion.d/
 Create and move project folder:
 
 ```shell
-mkdir -p src/examples-packaging-pdm
-cd src/examples-packaging-pdm
+mkdir -p apps/examples-packaging-pdm
+cd apps/examples-packaging-pdm
 ```
 
 pdm can be initialized in a project using a command:
@@ -162,7 +162,7 @@ __version__ = "0.1.1"
 + dynamic = ["version"]
 
 + [tool.pdm.version]
-+ path = "src/examples_packaging_pdm/__init__.py"
++ path = "apps/examples_packaging_pdm/__init__.py"
 + source = "file"
 ```
 
@@ -274,7 +274,7 @@ $ pdm use
 
 Please enter the Python interpreter to use
  0. cpython@3.12 (/usr/local/bin/python)
- 1. cpython@3.12 (/workspaces/examples-py-packaging/src/examples-packaging-pdm/.venv/bin/python)
+ 1. cpython@3.12 (/workspaces/examples-py-packaging/apps/examples-packaging-pdm/.venv/bin/python)
  2. cpython@3.12 (/usr/local/bin/python3.12)
 ```
 
@@ -285,7 +285,7 @@ $ pdm venv list
 
 Virtualenvs created with this project:
 
-*  in-project: /workspaces/examples-py-packaging/src/examples-packaging-pdm/.venv
+*  in-project: /workspaces/examples-py-packaging/apps/examples-packaging-pdm/.venv
 ```
 <!-- /* spell-checker:words Virtualenvs */ -->
 
@@ -400,6 +400,6 @@ pdm build
 $ pdm build --no-sdist
 
 Building wheel from sdist...
-Built wheel at /workspaces/examples-py-packaging/src/examples-packaging-pdm/dist/examples_packaging_pdm-0.1.3-py3-none-any.whl
+Built wheel at /workspaces/examples-py-packaging/apps/examples-packaging-pdm/dist/examples_packaging_pdm-0.1.3-py3-none-any.whl
 ```
 <!-- /* spell-checker:words sdist */ -->

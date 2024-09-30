@@ -41,7 +41,7 @@ pip install poetry
 Move to the root of your project...
 
 ```shell
-cd src/examples-packaging-poetry
+cd apps/examples-packaging-poetry
 ```
 
 Install this project:

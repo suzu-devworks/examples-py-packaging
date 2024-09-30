@@ -14,12 +14,12 @@ However, please note that the code described here is based on my personal opinio
 
 ## Projects
 
-- [examples-packaging-setup](./src/examples-packaging-setup/README.md)
-- [examples-packaging-setup2 ](./src/examples-packaging-setup2/README.md)
-- [examples-packaging-pipenv](./src/examples-packaging-pipenv/README.md)
-- [examples-packaging-poetry](./src/examples-packaging-poetry/README.md)
-- [examples-packaging-pdm](./src/examples-packaging-pdm/README.md)
-- [examples-packaging-rye](./src/examples-packaging-rye/README.md)
+- [examples-packaging-setup](./apps/examples-packaging-setup/README.md)
+- [examples-packaging-setup2 ](./apps/examples-packaging-setup2/README.md)
+- [examples-packaging-pipenv](./apps/examples-packaging-pipenv/README.md)
+- [examples-packaging-poetry](./apps/examples-packaging-poetry/README.md)
+- [examples-packaging-pdm](./apps/examples-packaging-pdm/README.md)
+- [examples-packaging-rye](./apps/examples-packaging-rye/README.md)
 
 <!-- // spell-checker:words pipenv -->
 
